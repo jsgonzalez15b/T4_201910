@@ -49,20 +49,20 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		violationcode=pViolationCode; 
 		fineAMT=pfineAMT;
 	}
-	
-	
+
+
 	/**
-	 * @return id - Identificador único de la infracción
+	 * @return id - Identificador Ãºnico de la infracciÃ³n
 	 */
 	public int objectId() 
 	{
 		// TODO 
 		return Id;
 	}	
-	
-	
+
+
 	/**
-	 * @return location - Dirección en formato de texto.
+	 * @return location - DirecciÃ³n en formato de texto.
 	 */
 	public String getLocation()
 	{
@@ -71,23 +71,23 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 	}
 
 	/**
-	 * @return date - Fecha cuando se puso la infracción .
+	 * @return date - Fecha cuando se puso la infracciÃ³n .
 	 */
 	public String getTicketIssueDate()
 	{
 		// TODO 
 		return ticketIssueDate;
 	}
-	
+
 	/**
-	 * @return totalPaid - Cuanto dinero efectivamente pagó el que recibió la infracción en USD.
+	 * @return totalPaid - Cuanto dinero efectivamente pagÃ³ el que recibiÃ³ la infracciÃ³n en USD.
 	 */
 	public double getTotalPaid()
 	{
 		//TODO
 		return totalpaid;
 	}
-	
+
 	/**
 	 * @return accidentIndicator - Si hubo un accidente o no.
 	 */
@@ -96,9 +96,9 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		// TODO 
 		return accidenIndicator; 
 	}
-		
+
 	/**
-	 * @return description - Descripción textual de la infracción.
+	 * @return description - DescripciÃ³n textual de la infracciÃ³n.
 	 */
 	public String  getViolationDescription()
 	{
@@ -109,7 +109,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 	{
 		return violationcode;
 	}
-	
+
 	public double getFINEAMT()
 	{
 		return fineAMT;
@@ -124,18 +124,20 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		int idInfraccion = o.objectId();
 		//sentencia de la comparacion
 		int comparacion = 1;
-		
-		if(ticketIssueDate.compareToIgnoreCase(fechaInfraccion)==0)
+
+		if(ticketIssueDate.equals(fechaInfraccion))
 		{
 			comparacion= idInfraccion < Id? 1:-1;
 		}
 		else
 		{
-			comparacion=ticketIssueDate.compareToIgnoreCase(fechaInfraccion);
+			if(ticketIssueDate.compareToIgnoreCase(fechaInfraccion)<0) {
+				comparacion=-1; 
+			}
 		}
 		return comparacion;
 	}
-	
+
 	public String toString()
 	{
 		// TODO 
