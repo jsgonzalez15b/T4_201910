@@ -52,7 +52,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 
 
 	/**
-	 * @return id - Identificador único de la infracción
+	 * @return id - Identificador Ãºnico de la infracciÃ³n
 	 */
 	public int objectId() 
 	{
@@ -62,7 +62,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 
 
 	/**
-	 * @return location - Dirección en formato de texto.
+	 * @return location - DirecciÃ³n en formato de texto.
 	 */
 	public String getLocation()
 	{
@@ -71,7 +71,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 	}
 
 	/**
-	 * @return date - Fecha cuando se puso la infracción .
+	 * @return date - Fecha cuando se puso la infracciÃ³n .
 	 */
 	public String getTicketIssueDate()
 	{
@@ -80,7 +80,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 	}
 
 	/**
-	 * @return totalPaid - Cuanto dinero efectivamente pagó el que recibió la infracción en USD.
+	 * @return totalPaid - Cuanto dinero efectivamente pagÃ³ el que recibiÃ³ la infracciÃ³n en USD.
 	 */
 	public double getTotalPaid()
 	{
@@ -98,7 +98,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 	}
 
 	/**
-	 * @return description - Descripción textual de la infracción.
+	 * @return description - DescripciÃ³n textual de la infracciÃ³n.
 	 */
 	public String  getViolationDescription()
 	{
