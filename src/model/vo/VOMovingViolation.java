@@ -125,13 +125,15 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		//sentencia de la comparacion
 		int comparacion = 1;
 		
-		if(ticketIssueDate.compareToIgnoreCase(fechaInfraccion)==0)
+		if(ticketIssueDate.equals(fechaInfraccion))
 		{
 			comparacion= idInfraccion < Id? 1:-1;
 		}
 		else
 		{
-			comparacion=ticketIssueDate.compareToIgnoreCase(fechaInfraccion);
+			if(ticketIssueDate.compareToIgnoreCase(fechaInfraccion)<0) {
+				comparacion=-1; 
+			}
 		}
 		return comparacion;
 	}

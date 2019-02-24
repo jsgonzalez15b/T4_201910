@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 /** Clase que permite el almacenamiento de nodos genericos en colas
  */
-public class Queue<T> implements IQueue<T> 
+public class Queue<T> implements IQueue<T>
 {
 	//Atributos
 
@@ -123,10 +123,9 @@ public class Queue<T> implements IQueue<T>
 	 * metodo de comparacion (Comparable<T>) 
 	 *@return 1,0,-1 segun la relacion entre los elementos.
 	 */
-	public int compareTo(T pItem)
-	{
-		
-		return 1;
+	public int compareTo(T pItem,T pItem2)
+	{	
+		return 0; 
 	}
 
 }
