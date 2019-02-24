@@ -49,8 +49,8 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		violationcode=pViolationCode; 
 		fineAMT=pfineAMT;
 	}
-	
-	
+
+
 	/**
 	 * @return id - Identificador único de la infracción
 	 */
@@ -59,8 +59,8 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		// TODO 
 		return Id;
 	}	
-	
-	
+
+
 	/**
 	 * @return location - Dirección en formato de texto.
 	 */
@@ -78,7 +78,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		// TODO 
 		return ticketIssueDate;
 	}
-	
+
 	/**
 	 * @return totalPaid - Cuanto dinero efectivamente pagó el que recibió la infracción en USD.
 	 */
@@ -87,7 +87,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		//TODO
 		return totalpaid;
 	}
-	
+
 	/**
 	 * @return accidentIndicator - Si hubo un accidente o no.
 	 */
@@ -96,7 +96,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		// TODO 
 		return accidenIndicator; 
 	}
-		
+
 	/**
 	 * @return description - Descripción textual de la infracción.
 	 */
@@ -109,7 +109,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 	{
 		return violationcode;
 	}
-	
+
 	public double getFINEAMT()
 	{
 		return fineAMT;
@@ -124,7 +124,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		int idInfraccion = o.objectId();
 		//sentencia de la comparacion
 		int comparacion = 1;
-		
+
 		if(ticketIssueDate.equals(fechaInfraccion))
 		{
 			comparacion= idInfraccion < Id? 1:-1;
@@ -137,7 +137,7 @@ public class VOMovingViolation implements Comparable<VOMovingViolation> {
 		}
 		return comparacion;
 	}
-	
+
 	public String toString()
 	{
 		// TODO 

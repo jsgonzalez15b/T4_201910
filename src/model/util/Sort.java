@@ -1,5 +1,7 @@
 package model.util;
 
+import model.vo.VOMovingViolation;
+
 public class Sort {
 	
 	/**
@@ -9,7 +11,35 @@ public class Sort {
 	public static void ordenarShellSort( Comparable[ ] datos ) {
 		
 		// TODO implementar el algoritmo ShellSort
+		int N=datos.length;
+		int j=1;
+		while(j<N/3) j=3*j+1; 
+		while(j>=1) {
+			for(int i=j; i<N; i++) {
+				for(int k=i;k>=j&&less(datos[k],datos[k-j]);k-=j) {
+					exchange(datos,k,k-j);
+				}
+			}
+		}
 	}
+	
+	private static void merge(Comparable[] datos, Comparable[] izq, Comparable[] der) {
+		int idizq=0; 
+		int idder=0; 
+		int idcompl=0;
+		while(idizq<izq.length&&idder<der.length) {
+			if(less(izq[idizq],der[idder])) {
+				datos[idcompl]=izq[idizq];
+				idizq++; 
+			}else {
+				datos[idcompl]=der[idder];
+				idder++;
+			}
+			idcompl++; 
+		}
+	}
+	
+	
 	
 	/**
 	 * Ordenar datos aplicando el algoritmo MergeSort
@@ -18,6 +48,7 @@ public class Sort {
 	public static void ordenarMergeSort( Comparable[ ] datos ) {
 
 		// TODO implementar el algoritmo MergeSort
+	
 	}
 
 	/**
@@ -35,10 +66,12 @@ public class Sort {
 	 * @param w segundo objeto de comparacion
 	 * @return true si v es menor que w usando el metodo compareTo. false en caso contrario.
 	 */
-	private boolean less(Comparable v, Comparable w)
+	private static boolean less(Comparable v, Comparable w)
 	{
-		// TODO implementar
-		return false;
+		if(v.compareTo(w)<0) {
+			return true; 
+		}
+		return false; 
 	}
 	
 	/**
@@ -47,9 +80,12 @@ public class Sort {
 	 * @param i posicion del 1er elemento a intercambiar
 	 * @param j posicion del 2o elemento a intercambiar
 	 */
-	private void exchange( Comparable[] datos, int i, int j)
+	private static void exchange( Comparable[] datos, int i, int j)
 	{
 		// TODO implementar
-	}
+		Comparable copia=datos[j];
+		datos[j]=datos[i];
+		datos[i]=copia; 
+		}
 
 }

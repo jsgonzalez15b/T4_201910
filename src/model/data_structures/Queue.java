@@ -123,9 +123,26 @@ public class Queue<T> implements IQueue<T>
 	 * metodo de comparacion (Comparable<T>) 
 	 *@return 1,0,-1 segun la relacion entre los elementos.
 	 */
-	public int compareTo(T pItem,T pItem2)
+	public int compareTo(T pItem)
 	{	
 		return 0; 
+	}
+	
+	public T darElemento(int pos) {
+		if(pos==0) {
+			return (T)primero.darElemento();
+		}
+		else if(pos==cantidad-1) {
+			return ultimo.darElemento();
+		}else {
+			int j=0;
+			Nodo<T> actual=primero; 
+			while(pos!=j) {
+				actual=actual.darSiguiente();
+				j++;
+			}
+			return actual.darElemento();
+		}
 	}
 
 }

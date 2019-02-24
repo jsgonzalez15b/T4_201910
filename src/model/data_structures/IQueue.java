@@ -32,4 +32,6 @@ public interface IQueue<T> extends Iterable<T>, Comparable<T>{
 	 */
 	public int compareTo(T pItem);
 	
+	public T darElemento(int pos);
+	
 }
