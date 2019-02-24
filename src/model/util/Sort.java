@@ -11,6 +11,7 @@ public class Sort {
 	public static void ordenarShellSort( Comparable[ ] datos ) {
 
 		// TODO implementar el algoritmo ShellSort
+		long startTime = System.currentTimeMillis();
 		int N=datos.length;
 		int j=1;
 		while(j<N/3) j=3*j+1; 
@@ -21,6 +22,8 @@ public class Sort {
 				}
 			}
 		}
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println(endTime+"");
 	}
 
 
@@ -82,7 +85,10 @@ public class Sort {
 	public static void ordenarMergeSort( Comparable[ ] datos ) {
 
 		// TODO implementar el algoritmo MergeSort
+		long startTime = System.currentTimeMillis();
 		mergeSort(datos, 0, datos.length-1);
+		long endTime = System.currentTimeMillis() - startTime;
+		System.out.println(endTime+"");
 
 	}
 
