@@ -21,6 +21,7 @@ public class Sort {
 					exchange(datos,k,k-j);
 				}
 			}
+		j=j/3;
 		}
 		long endTime = System.currentTimeMillis() - startTime;
 		System.out.println(endTime+"");
@@ -92,6 +93,39 @@ public class Sort {
 
 	}
 
+	
+	/**
+	 * Ordenar datos respecto a un pivote recibido por parametro en un arreglo
+	 * @param datos - conjunto de datos a ordenar (inicio) y conjunto de datos ordenados (final)
+	 * @param inicio - indice que indica el inicio del ordenamiento por pivote
+	 * @param final - indice que indica el final del ordenamiento por pivote
+	 */
+	public static void QuickSort( Comparable[ ] datos, int inicio, int fin)
+	{
+		// TODO 
+		//se escoge como pivote el primer termino
+		Comparable pivote = datos[inicio];
+		int primermayor = inicio;
+		if(inicio<fin&&inicio<datos.length)
+		{
+			for(int i=inicio +1; i<fin; i++) //ordena los elementos empezando por el segundo de la lista
+			{
+				if(less(datos[i],pivote)) 
+				{
+					//si el elemento en la posicion i es menor al pivote se intercambio con el indice del primer elemento mayor al pivote
+					exchange(datos, i, primermayor);
+					primermayor++;
+				}
+			}
+			//se repite recursivamente el metodo
+			QuickSort(datos,inicio, primermayor);
+			QuickSort(datos,primermayor+1,fin);
+		}
+	}
+	
+	
+	
+	
 	/**
 	 * Ordenar datos aplicando el algoritmo QuickSort
 	 * @param datos - conjunto de datos a ordenar (inicio) y conjunto de datos ordenados (final)
@@ -101,15 +135,15 @@ public class Sort {
 		// TODO 
 		// Ejecuto Quick Sort y ordeno recursivamente las secciones restantes
 		int inicio = 0;//indice que indica el inicio del ordenamiento por pivote
-		int final = datos.length //indice que indica el final del ordenamiento por pivote
-		pivote = datos[inicio]; //escogo el pivote como el primer termino del arreglo
-		primermayor = inicio;
-		if( inicio != final)
+		int fin = datos.length; //indice que indica el final del ordenamiento por pivote
+		Comparable pivote = datos[inicio]; //escogo el pivote como el primer termino del arreglo
+		int primermayor = inicio;
+		if( inicio != fin)
 		{
 			//primer ordenamiento
-			for(i=inicio +1: final; i++) //ordena los elementos con respecto al pivote empezando por el segundo de la lista
+			for(int i=inicio +1; i<fin; i++) //ordena los elementos con respecto al pivote empezando por el segundo de la lista
 			{
-				if(datos[i].comparteTo(pivote)<0) 
+				if(less(datos[i], pivote)) 
 				{
 					//si el elemento en la posicion i es menor al pivote se intercambio con el indice del primer elemento mayor al pivote
 					exchange(datos, i, primermayor);
@@ -118,36 +152,7 @@ public class Sort {
 			}
 			//ordenamientos sucesivos
 			QuickSort (datos, inicio, primermayor);
-			QuickSort (datos, primermayor+1, final);
-		}
-	}
-	
-	/**
-	 * Ordenar datos respecto a un pivote recibido por parametro en un arreglo
-	 * @param datos - conjunto de datos a ordenar (inicio) y conjunto de datos ordenados (final)
-	 * @param inicio - indice que indica el inicio del ordenamiento por pivote
-	 * @param final - indice que indica el final del ordenamiento por pivote
-	 */
-	public static void QuickSort( Comparable[ ] datos, int inicio, int final)
-	{
-		// TODO 
-		//se escoge como pivote el primer termino
-		pivote = datos[inicio];
-		primermayor = inicio;
-		if(inicio<final)
-		{
-			for(i=inicio +1: final; i++) //ordena los elementos empezando por el segundo de la lista
-			{
-				if(datos[i].comparteTo(pivote)<0) 
-				{
-					//si el elemento en la posicion i es menor al pivote se intercambio con el indice del primer elemento mayor al pivote
-					exchange(datos, i, primermayor);
-					primermayor++;
-				}
-			}
-			//se repite recursivamente el metodo
-			QuickSort(datos,inicio, primermayor);
-			QuickSort(datos,primermayor+1,final);
+			QuickSort (datos, primermayor+1, fin);
 		}
 	}
 
