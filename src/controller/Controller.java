@@ -97,10 +97,13 @@ public class Controller {
 	 */
 	public Comparable<VOMovingViolation> [ ] generarMuestra( int n )
 	{
+		int contador=1; 
 		muestra = new Comparable[n];
 		for(int i=0; i<n; i++) {
 			VOMovingViolation a=movingViolationsQueue.darElemento((int)(Math.random()*movingViolationsQueue.size()));
 			muestra[i]=a;
+			System.out.println(contador+"");
+			contador++; 
 		}
 
 		// TODO Llenar la muestra aleatoria con los datos guardados en la estructura de datos
