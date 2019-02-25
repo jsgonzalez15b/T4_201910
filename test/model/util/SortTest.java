@@ -148,17 +148,12 @@ public class SortTest
 	@Test
 	public void testShellSort() 
 	{
-		//en caso de que no se haya inicializado @before llamo al setUp
-		if(datos==null)
-		{
-			try 
-			{
-				setUp();
-			} catch (Exception e) 
-			{
-				e.printStackTrace();
-			}
-		}
+		//Inicializo en los mismo valores del primer intento
+		datos [3] = pInfraccion1;
+		datos [2] = pInfraccion2;
+		datos [4] = pInfraccion3;
+		datos [1] = pInfraccion4;
+		datos [5] = pInfraccion5;
 		//Primera  prueba de ordenarShellSort()
 		ordenarShellSort(datos);
 		assertEquals( "El primero no es el elemento para el orden esperado", "2018-02-13" , datos[1].getTicketIssueDate() );
@@ -182,6 +177,41 @@ public class SortTest
 		assertEquals( "El segundo no es el elemento para el orden esperado", "2018-02-23" , datos[2].getTicketIssueDate() );
 		assertEquals( "El tercero no es el elemento para el orden esperado", "2018-02-23" , datos[3].getTicketIssueDate() );
 		assertEquals( "El cuarto no es el esperado para el orden esperado", "2018-02-25", datos[4].getTicketIssueDate() );
+		assertEquals( "El quinto no es el esperado para el ordenamiento", "2018-02-26" , datos[5].getTicketIssueDate() );
+	}
+	
+	@Test
+	public void testMergeSort() 
+	{
+		//Inicializo en los mismo valores del primer intento
+		datos [3] = pInfraccion1;
+		datos [2] = pInfraccion2;
+		datos [4] = pInfraccion3;
+		datos [1] = pInfraccion4;
+		datos [5] = pInfraccion5;
+		//Primera  prueba de ordenarMergeSort()
+		ordenarMergeSort(datos);
+		assertEquals( "El primero no es el elemento para el orden esperado", "2018-02-13" , datos[1].getTicketIssueDate() );
+		assertEquals( "El segundo no es el elemento para el orden esperado", "2018-02-15" , datos[2].getTicketIssueDate() );
+		assertEquals( "El tercero no es el elemento para el orden esperado", "2018-02-17" , datos[3].getTicketIssueDate() );
+		
+		//pruebas de ordenarMergeSort() y misma fecha para compareTo()
+		assertEquals( "El cuarto no es el esperado, compareTo podría estar mal", 4, datos[4].objectId() );
+		assertEquals( "El quinto no es el esperado para el ordenamiento, compareTo() funciona sin embargo", 5 , datos[5].objectId() );
+		
+		//inicializo el arreglo desordenado nuevamente para probar el metodo nuevamente
+		datos [3] = pInfraccion1;
+		datos [2] = pInfraccion3;
+		datos [4] = pInfraccion5;
+		datos [1] = pInfraccion6;
+		datos [5] = pInfraccion8;
+		
+		//Segunda  prueba de ordenarMergeSort()
+		ordenarMergeSort(datos);
+		assertEquals( "El primero no es el elemento para el orden esperado", "2018-02-13" , datos[1].getTicketIssueDate() );
+		assertEquals( "El segundo no es el elemento para el orden esperado", "2018-02-17" , datos[2].getTicketIssueDate() );
+		assertEquals( "El tercero no es el elemento para el orden esperado", "2018-02-23" , datos[3].getTicketIssueDate() );
+		assertEquals( "El cuarto no es el esperado para el orden esperado", "2018-02-23", datos[4].getTicketIssueDate() );
 		assertEquals( "El quinto no es el esperado para el ordenamiento", "2018-02-26" , datos[5].getTicketIssueDate() );
 	}
 }
